@@ -124,8 +124,8 @@ if $0 == __FILE__
   docroot = nil
 
   parser = OptionParser.new do |opts|
-    opts.on("-p", "--port NUMBER") { |port| port = port.to_i }
-    opts.on("-d", "--docroot PATH") { |d| docroot = File.expand_path(d) }
+    opts.on("-p", "--port NUMBER") { |arg| port = arg.to_i }
+    opts.on("-d", "--docroot PATH") { |arg| docroot = File.expand_path(arg) }
   end
   parser.parse!(ARGV)
 
