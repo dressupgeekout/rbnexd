@@ -124,8 +124,12 @@ if $0 == __FILE__
   docroot = nil
 
   parser = OptionParser.new do |opts|
-    opts.on("-p", "--port NUMBER") { |arg| port = arg.to_i }
-    opts.on("-d", "--docroot PATH") { |arg| docroot = File.expand_path(arg) }
+    opts.on("-p", "--port NUMBER", "default: #{Nex::DEFAULT_PORT}") { |arg|
+      port = arg.to_i
+    }
+    opts.on("-d", "--docroot PATH", "default: #{Nex::DEFAULT_DOCROOT}") { |arg|
+      docroot = File.expand_path(arg)
+    }
   end
   parser.parse!(ARGV)
 
